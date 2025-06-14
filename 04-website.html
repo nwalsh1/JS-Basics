@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>HTML CSS Review</title>
+    <style>
+      /*CSS selector*/
+      .red-button {
+        color: white;
+        background-color: red;
+        border: none;
+      }
+
+      .yellow-button {
+        background-color: yellow;
+        color: black;
+      }
+
+      button {
+        /*CSS Styles:*/
+        color: white;
+        background-color: blue;
+        border: 1px solid black;
+        /*CSS property: CSS value*/
+      }
+    </style>
+  </head>
+  <body>
+    <!-- HTML attribute: eg title (tooltip), class (label)-->
+    <!--JS can also be put in HTML attributeslike with onclick-->
+    <button
+      title="Good Job"
+      class="red-button"
+      onclick="
+    alert('Good Job!')
+    "
+    >
+      hello
+    </button>
+
+    <p>paragraph of <button>hello</button> text</p>
+    <button class="yellow-button">hello</button>
+
+    <!--Script element is usually at the bottom off the page-->
+    <script>
+      // This code creates a popup
+      // alert("hello");
+      console.log(2 + 2); //JS version of print
+      console.log("Some" + " Text");
+    </script>
+  </body>
+</html>

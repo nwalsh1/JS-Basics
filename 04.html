@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Exercise 4 - Buttons</title>
+    <style>
+      .colorful-buttons button {
+        border: 2px solid black;
+      }
+      .orange-button {
+        color: black;
+        background-color: orange;
+      }
+
+      .yellow-button {
+        color: black;
+        background-color: yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <div><button>Click</button></div>
+
+    <button>Neil</button> <button>coffee</button>
+    <p>Hello World!</p>
+    <p>Today I went to the grocery store to work my IT position there.</p>
+
+    <div class="colorful-buttons">
+      <button class="yellow-button">Add to cart</button>
+      <button class="orange-button">Buy now</button>
+    </div>
+
+    <div>
+      <p>Adults Plain Cottom T-shirt</p>
+      <p>Price: $7.99</p>
+      <div class="colorful-buttons">
+        <button class="yellow-button" onclick="alert('Added')">
+          Add to cart
+        </button>
+        <button
+          class="orange-button"
+          onclick=" console.log('Loading...'); alert('Purchased');"
+        >
+          Buy now
+        </button>
+      </div>
+    </div>
+
+    <script>
+      console.log("Welcome!");
+    </script>
+  </body>
+</html>
