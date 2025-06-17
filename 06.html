@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Exercise 6 - Booleans</title>
+  </head>
+  <body>
+    <script>
+      let hour = 12;
+      let name = "Neil";
+
+      if (hour >= 6 && hour <= 12) {
+        console.log(`Good Morning ${name}!`);
+      } else if (hour >= 13 && hour <= 17) {
+        console.log(`Good Afternoon ${name}!`);
+      } else {
+        console.log(`Good Night! ${name}`);
+      }
+
+      let age = 64;
+      let isHoliday = false;
+      if ((age <= 6 || age >= 65) && !isHoliday) {
+        console.log("Discount");
+      } else {
+        console.log("No discount");
+      }
+
+      const randNum = Math.random();
+      let result = "";
+      let guess = "heads";
+
+      if (randNum < 0.5) {
+        //console.log("heads");
+        result = "heads";
+      } else {
+        result = "tails";
+        //console.log("tails");
+      }
+
+      // if (guess === result) {
+      //   console.log("You Win!");
+      // } else {
+      //   console.log("You Lose!");
+      // }
+
+      guess === result ? console.log("You Win!") : console.log("You Lose!");
+    </script>
+  </body>
+</html>

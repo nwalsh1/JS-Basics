@@ -5,6 +5,7 @@
   </head>
   <body>
     <script>
+      /*
       true;
       false;
       console.log(3 > 5 - 5);
@@ -30,6 +31,51 @@
         //branch
         console.log("You cannot drive");
       }
+       
+      console.log(true && false);
+      console.log(0.2 >= 0 && 0.2 < 1 / 3);
+
+      console.log(true || false);
+      console.log(!true);
+
+      Falsy Values:
+      false 0 '' NaN undefined null
+
+      Any other value not on this list is truthy
+     
+
+      if (5) {
+        console.log("truthy");
+      }
+
+      const cartQuantity = 5;
+
+      if (cartQuantity) {
+        console.log("cart has products");
+      }
+
+      console.log(!0);
+
+      console.log("text" / 5);
+      let var1;
+      console.log(var1);
+
+       */
+      //Short Cuts
+
+      //ternary operator
+      const result = 0 ? "truthy" : "falsy";
+      console.log(result);
+
+      //Guard operator, Short Curcuit
+      false && console.log("hello");
+
+      const message = 5 && "hello";
+      console.log(message);
+
+      //Default Operator
+      const currency = undefined || "USD";
+      console.log(currency);
     </script>
   </body>
 </html>
