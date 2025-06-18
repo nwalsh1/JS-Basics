@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cart Quantity</title>
+  </head>
+  <body>
+    <p>Cart Quantity</p>
+
+    <button onclick="console.log('Cart Quantity: ' + cartQuantity)">
+      Show Quantity
+    </button>
+
+    <button onclick="updateCalculation(1);">Add to Cart</button>
+
+    <button onclick="updateCalculation(2);">+2</button>
+
+    <button onclick="updateCalculation(3);">+3</button>
+
+    <button onclick="updateCalculation(4);">+4</button>
+
+    <button onclick="updateCalculation(5);">+5</button>
+
+    <button onclick="updateCalculation(-3);">-3</button>
+
+    <button onclick="updateCalculation(-2);">-2</button>
+
+    <button onclick="updateCalculation(-1);">Remove From Cart</button>
+
+    <button
+      onclick="
+      cartQuantity = 0;
+      console.log('Cart Was Reset');
+      console.log('Cart Quantity: ' + cartQuantity);
+      "
+    >
+      Reset Cart
+    </button>
+    <script>
+      let cartQuantity = 0;
+      function updateCalculation(adjustment) {
+        cartQuantity += adjustment;
+        console.log("Cart Quantity: " + cartQuantity);
+      }
+    </script>
+  </body>
+</html>
