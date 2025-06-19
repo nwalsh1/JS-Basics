@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Exerciese 8 - Objects</title>
+  </head>
+  <body>
+    <button onclick="coinToss('heads')">heads</button>
+    <button onclick="coinToss('tails')">tails</button>
+    <script>
+      /*
+      product = {
+        name: "basketball",
+        price: 2095,
+      };
+      console.log(product);
+      product.price += 500;
+      console.log(product);
+      product["delivery-time"] = "3 days";
+      console.log(product);
+
+      function comparePrice(product1, product2) {
+        if (product1.price > product2.price) {
+          return product2;
+        } else {
+          return product1;
+        }
+      }
+
+      product2 = {
+        name: "socks",
+        price: 600,
+      };
+
+      product3 = {
+        name: "shirt",
+        price: 100,
+      };
+
+      console.log(comparePrice(product, product2));
+      console.log(comparePrice(product3, product2));
+
+      function isSameProduct(product1, product2) {
+        return (
+          product1.name === product2.name && product1.price === product2.price
+        );
+      }
+
+      product4 = {
+        name: "shirt",
+        price: 100,
+      };
+
+      console.log(isSameProduct(product2, product3));
+      console.log(isSameProduct(product3, product4));
+
+      console.log("Good Morning".toLowerCase());
+      console.log("test".repeat(2));*/
+      score = JSON.parse(localStorage.getItem("score")) || {
+        wins: 0,
+        losses: 0,
+      };
+      function coinToss(guess) {
+        const randNum = Math.random();
+        let result = "";
+
+        if (randNum < 0.5) {
+          //console.log("heads");
+          result = "heads";
+        } else {
+          result = "tails";
+          //console.log("tails");
+        }
+        if (guess === result) {
+          score.wins++;
+          localStorage.setItem("score", JSON.stringify(score));
+          alert(
+            `You guessed: ${guess} The correct answer was ${result} You Win!
+Wins: ${score.wins}, Losses: ${score.losses}`
+          );
+        } else {
+          score.losses++;
+          localStorage.setItem("score", JSON.stringify(score));
+
+          alert(
+            `You guessed: ${guess} The correct answer was ${result} You Lose!
+Wins: ${score.wins}, Losses: ${score.losses}`
+          );
+        }
+      }
+    </script>
+  </body>
+</html>
