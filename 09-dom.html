@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Document Object Model (DOM)</title>
+  </head>
+  <body>
+    <button>hello</button>
+    <button class="js-button">Second Button</button>
+    <script>
+      /*
+      DOM is a built-in JS object
+      we can have HTML elements inside JS, DOM combines JS and HTML
+      DOM is what allows us to control the webpage with JS
+
+      body is an object in the document object
+      the document object is linked to the webpage
+      document.body.innerHTML = "hello";
+      Document object represents /models the webpage (DOM)
+
+      document.title = "Good Job!";
+      contains properties that can be accessed with dot notations
+      changes in the document properties changes the webpage
+      this property give us the title
+      
+      document.title; // get and change the title
+      console.log(document.title);
+      document.title = "Changed";
+      console.log(document.title);
+
+      document.body; //gets body html element and put inside our JS
+      console.log(document.body);
+      console.log(typeof document.body); //HTML element is converted to a JS object
+
+      document.body.innerHTML; //controls all html in the body
+      //console.log(document.body.innerHTML);
+      document.body.innerHTML = "<button>Good Job!</button>";//JS can replace HTML in the body
+      */
+
+      console.log(document.querySelector("button").innerHTML); //lets us get any element from the page and put it in JS
+      //the string tells us which element from the page to get
+      // document.querySelector("body") === document.body
+      //every HTML element has an innerHTML property
+
+      document.querySelector("button").innerHTML = "Changed"; //allows us to change only the elements we need to
+
+      //need to start with . to select a class (a class selector like in CSS)
+      const buttonElement = document.querySelector(".js-button");
+      console.log(buttonElement);
+      //using dom we can get HTML elements and then save them in variables
+    </script>
+  </body>
+</html>
