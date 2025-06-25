@@ -28,6 +28,93 @@
     <button onclick="submit()">Submit</button>
     <p class="js-name"></p>
 
+    <p>9g:</p>
+    <p>Amazon Shipping Calculator</p>
+    <p>Orders under $40 = +$10 shipping.</p>
+    <p>Orders over $40 = FREE shipping.</p>
+
+    <input
+      placeholder="Cost of order"
+      class="js-cost-input"
+      onkeydown="handleCostKeydown(event)"
+    />
+    <button onclick="calculateTotal()">Calculate</button>
+
+    <p class="js-result"></p>
+
+    <p>9h:</p>
+    <input
+      class="js-9h-input"
+      onkeyup="document.querySelector('.js-9h-text').innerHTML = document.querySelector('.js-9h-input').value"
+    />
+    <p class="js-9h-text"></p>
+
+    <p>9i:</p>
+    <p>Cart Quantity</p>
+
+    <button onclick="printQuantity(cartQuantity);">Show Quantity</button>
+
+    <button onclick="updateCartQuantiy(1);">Add to Cart</button>
+
+    <button onclick="updateCartQuantiy(2);">+2</button>
+
+    <button onclick="updateCartQuantiy(3);">+3</button>
+
+    <button onclick="updateCartQuantiy(4);">+4</button>
+
+    <button onclick="updateCartQuantiy(5);">+5</button>
+
+    <button onclick="updateCartQuantiy(-3);">-3</button>
+
+    <button onclick="updateCartQuantiy(-2);">-2</button>
+
+    <button onclick="updateCartQuantiy(-1);">Remove From Cart</button>
+
+    <button onclick="reset();">Reset Cart</button>
+
+    <p class="js-9i-text"></p>
+    <p class="js-9i-alert"></p>
+
+    <p>9j:</p>
+
+    <p>Calculator</p>
+    <p class="js-calc-display"></p>
+    <p>
+      <button onclick="calculation+= 1; displayCalc(calculation)">1</button>
+      <button onclick="calculation+= 2; displayCalc(calculation)">2</button>
+      <button onclick="calculation+= 3; displayCalc(calculation)">3</button>
+      <button onclick="calculation+= ' + '; displayCalc(calculation)">+</button>
+    </p>
+    <p>
+      <button onclick="calculation+= 4; displayCalc(calculation)">4</button>
+      <button onclick="calculation+= 5; displayCalc(calculation)">5</button>
+      <button onclick="calculation+= 6; displayCalc(calculation)">6</button>
+      <button onclick="calculation+= ' - '; displayCalc(calculation)">-</button>
+    </p>
+    <p>
+      <button onclick="calculation+= 7; displayCalc(calculation)">7</button>
+      <button onclick="calculation+= 8; displayCalc(calculation)">8</button>
+      <button onclick="calculation+= 9; displayCalc(calculation)">9</button>
+      <button onclick="calculation+= ' * '; displayCalc(calculation)">*</button>
+    </p>
+    <p>
+      <button onclick="calculation+= 0; displayCalc(calculation)">0</button>
+      <button onclick="calculation+= '.'; displayCalc(calculation)">.</button>
+      <button
+        onclick="calculation = eval(calculation); displayCalc(calculation);"
+      >
+        =
+      </button>
+      <button onclick="calculation+= ' / '; displayCalc(calculation)">/</button>
+    </p>
+    <p>
+      <button
+        onclick="calculation = ''; displayCalc('Cleared.');localStorage.removeItem('calculation');"
+      >
+        Clear
+      </button>
+    </p>
+
     <script>
       console.log(document.querySelector("button"));
       document.querySelector(".js-9b-button").innerHTML = "9b done!";
@@ -45,6 +132,68 @@
         if (event.key === "Enter") {
           submit();
         }
+      }
+
+      function handleCostKeydown(event) {
+        if (event.key === "Enter") {
+          calculateTotal();
+        }
+      }
+      function calculateTotal() {
+        const inputElement = document.querySelector(".js-cost-input");
+        const cost = Number(inputElement.value); //.value gets you the value of a text box
+        //values from DOM will be strings, Number() converts whats in the brackets to a number
+        const resultElement = document.querySelector(".js-result");
+
+        if (cost < 40) {
+          resultElement.innerHTML = "$" + (Math.round(cost * 100) + 1000) / 100;
+        } else {
+          resultElement.innerHTML = "$" + cost;
+        }
+      }
+
+      let cartQuantity = 0;
+      printQuantity(cartQuantity);
+
+      function updateCartQuantiy(adjustment) {
+        if (cartQuantity + adjustment <= 10 && cartQuantity + adjustment >= 0) {
+          cartQuantity += adjustment;
+          printQuantity(cartQuantity);
+        } else if (adjustment > 0) {
+          printQuantity(cartQuantity);
+          printAlert("The Cart is Full");
+          return;
+        } else {
+          printQuantity(cartQuantity);
+          printAlert("Not Enough items in Cart");
+          return;
+        }
+      }
+
+      function printQuantity(quantity) {
+        const textElement = document.querySelector(".js-9i-text");
+        textElement.innerHTML = "Cart Quantity: " + quantity;
+        printAlert("");
+      }
+
+      function printAlert(alert) {
+        const alertElement = document.querySelector(".js-9i-alert");
+        alertElement.innerHTML = alert;
+      }
+
+      function reset() {
+        cartQuantity = 0;
+        printAlert("Cart Was Reset");
+        printQuantity(cartQuantity);
+      }
+
+      let calculation = localStorage.getItem("calculation") || "";
+      document.querySelector(".js-calc-display").innerHTML = calculation;
+
+      function displayCalc(calc) {
+        const displayElement = document.querySelector(".js-calc-display");
+        displayElement.innerHTML = calc;
+        localStorage.setItem("calculation", calc);
       }
     </script>
   </body>
