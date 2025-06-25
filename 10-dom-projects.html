@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DOM Projects</title>
+
+    <style>
+      body {
+        font-family: Arial;
+      }
+
+      /*CSS selector*/
+      .subscribe-button {
+        /*property : value pair*/
+        background-color: black;
+        color: white;
+        border: none;
+        border-radius: 50px;
+        padding: 10px 15px;
+        margin-bottom: 35px;
+        cursor: pointer;
+        font-weight: 700;
+      }
+
+      /*needs to be below the default to override*/
+      .is-subscribed {
+        color: black;
+        background-color: rgb(240, 240, 240);
+      }
+      .calculate-button {
+        color: white;
+        background-color: green;
+        border: none;
+        padding: 12px 15px;
+        font-size: 15px;
+        cursor: pointer;
+      }
+
+      .cost-input {
+        padding: 10px;
+        font-size: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <p>YouTube Subscribe Button</p>
+    <!--It is good practice to use different classes when you are using it for CSS and JS-->
+    <button class="js-sub-button subscribe-button" onclick="subscribe()">
+      Subscribe
+    </button>
+
+    <p>Amazon Shipping Calculator</p>
+    <p>Orders under $40 = +$10 shipping.</p>
+    <p>Orders over $40 = FREE shipping.</p>
+
+    <input
+      placeholder="Cost of order"
+      class="js-cost-input cost-input"
+      onkeydown="handleCostKeydown(event)"
+    />
+    <button class="calculate-button" onclick="calculateTotal()">
+      Calculate
+    </button>
+
+    <p class="js-result"></p>
+
+    <script>
+      /*
+      Each DOM element has the built-in property .classList which gies us control of the class attribute
+      */
+
+      //need to pass event as a paramenter as it only exists in the event listener
+      function handleCostKeydown(event) {
+        if (event.key === "Enter") {
+          calculateTotal();
+        }
+      }
+      function calculateTotal() {
+        const inputElement = document.querySelector(".js-cost-input");
+        const cost = Number(inputElement.value); //.value gets you the value of a text box
+        //values from DOM will be strings, Number() converts whats in the brackets to a number
+        const resultElement = document.querySelector(".js-result");
+
+        if (cost < 40) {
+          resultElement.innerHTML = "$" + (cost + 10);
+        } else {
+          resultElement.innerHTML = "$" + cost;
+        }
+      }
+      function subscribe() {
+        const buttonElement = document.querySelector(".js-sub-button");
+        //innerText ignores spaces and new line characters
+        if (buttonElement.innerText === "Subscribe") {
+          buttonElement.innerHTML = "Subscribed";
+          //adds the is-subscribed class to the subscribe button
+          buttonElement.classList.add("is-subscribed");
+        } else {
+          buttonElement.innerHTML = "Subscribe";
+          buttonElement.classList.remove("is-subscribed");
+        }
+      }
+    </script>
+  </body>
+</html>
