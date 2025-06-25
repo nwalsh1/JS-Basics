@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Exercise 10 - HTML, CSS, and JS Together</title>
+    <style>
+      .amazon-button {
+        color: balck;
+        background-color: rgb(255, 216, 20);
+        padding: 5px 35px;
+        font-size: 15px;
+        border-radius: 15px;
+        border: none;
+      }
+      .uber-request-button {
+        color: white;
+        background-color: black;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 15px;
+      }
+
+      .uber-schedule-button {
+        margin-left: 20px;
+        color: black;
+        background-color: rgb(230, 230, 230);
+        border: none;
+        border-radius: 5px;
+        padding: 10px 15px;
+        font-weight: bold;
+      }
+
+      .gaming-button {
+        color: black;
+        background-color: rgb(230, 230, 230);
+        border: none;
+        border-radius: 5px;
+        padding: 10px 15px;
+        cursor: pointer;
+      }
+
+      .button-pressed {
+        color: white;
+        background-color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <p>10a:</p>
+    <button class="amazon-button">Add to Cart</button>
+
+    <p>10b:</p>
+    <button class="uber-request-button">Request now</button>
+    <button class="uber-schedule-button">Schedule for later</button>
+
+    <p>10c:</p>
+    <button class="js-button">Test</button>
+
+    <p>10d:</p>
+    <button class="gaming-button js-gaming-button">Gaming</button>
+
+    <script>
+      console.log(
+        document.querySelector(".js-button").classList.contains("js-button")
+      );
+    </script>
+  </body>
+</html>
