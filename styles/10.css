@@ -1,0 +1,58 @@
+.amazon-button {
+  color: balck;
+  background-color: rgb(255, 216, 20);
+  padding: 5px 35px;
+  font-size: 15px;
+  border-radius: 15px;
+  border: none;
+}
+.uber-request-button {
+  color: white;
+  background-color: black;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+}
+
+.uber-schedule-button {
+  margin-left: 20px;
+  color: black;
+  background-color: rgb(230, 230, 230);
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  font-weight: bold;
+}
+
+.on-off-button {
+  color: black;
+  background-color: rgb(230, 230, 230);
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+.is-toggled {
+  color: white;
+  background-color: black;
+}
+
+/*10h*/
+.calculate-button {
+  color: white;
+  background-color: green;
+  border: none;
+  padding: 12px 15px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.cost-input {
+  padding: 10px;
+  font-size: 15px;
+}
+
+.red-text {
+  color: red;
+}

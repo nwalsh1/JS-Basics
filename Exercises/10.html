@@ -2,49 +2,11 @@
 <html>
   <head>
     <title>Exercise 10 - HTML, CSS, and JS Together</title>
-    <style>
-      .amazon-button {
-        color: balck;
-        background-color: rgb(255, 216, 20);
-        padding: 5px 35px;
-        font-size: 15px;
-        border-radius: 15px;
-        border: none;
-      }
-      .uber-request-button {
-        color: white;
-        background-color: black;
-        border: none;
-        border-radius: 5px;
-        padding: 10px 15px;
-      }
-
-      .uber-schedule-button {
-        margin-left: 20px;
-        color: black;
-        background-color: rgb(230, 230, 230);
-        border: none;
-        border-radius: 5px;
-        padding: 10px 15px;
-        font-weight: bold;
-      }
-
-      .gaming-button {
-        color: black;
-        background-color: rgb(230, 230, 230);
-        border: none;
-        border-radius: 5px;
-        padding: 10px 15px;
-        cursor: pointer;
-      }
-
-      .button-pressed {
-        color: white;
-        background-color: black;
-      }
-    </style>
+    <link rel="stylesheet" href="../styles/10.css" />
   </head>
   <body>
+    <h1>Exercise 10 - HTML, CSS, and JavaScript Together</h1>
+
     <p>10a:</p>
     <button class="amazon-button">Add to Cart</button>
 
@@ -56,12 +18,77 @@
     <button class="js-button">Test</button>
 
     <p>10d:</p>
-    <button class="gaming-button js-gaming-button">Gaming</button>
+    <button
+      class="on-off-button js-gaming-button1"
+      onclick="clickButton('js-gaming-button1')"
+    >
+      Gaming
+    </button>
 
-    <script>
-      console.log(
-        document.querySelector(".js-button").classList.contains("js-button")
-      );
-    </script>
+    <p>10e:</p>
+    <button
+      class="on-off-button js-gaming-button2"
+      onclick="clickButton('js-gaming-button2')"
+    >
+      Gaming
+    </button>
+    <button
+      class="on-off-button js-music-button"
+      onclick="clickButton('js-music-button')"
+    >
+      Music
+    </button>
+    <button
+      class="on-off-button js-tech-button"
+      onclick="clickButton('js-tech-button')"
+    >
+      Tech
+    </button>
+
+    <p>10f:</p>
+    <p>I seperated The HTML, CSS, and JavaScript code into different files</p>
+
+    <p>10g:</p>
+    <button
+      class="on-off-button js-exclusive-gaming-button"
+      onclick="exclusiveClickButton('js-exclusive-gaming-button')"
+    >
+      Gaming
+    </button>
+    <button
+      class="on-off-button js-exclusive-music-button"
+      onclick="exclusiveClickButton('js-exclusive-music-button')"
+    >
+      Music
+    </button>
+    <button
+      class="on-off-button js-exclusive-tech-button"
+      onclick="exclusiveClickButton('js-exclusive-tech-button')"
+    >
+      Tech
+    </button>
+
+    <p>10h:</p>
+    <input
+      placeholder="Cost of order"
+      class="js-cost-input cost-input"
+      onkeydown="handleCostKeydown(event)"
+    />
+    <button class="calculate-button" onclick="calculateTotal()">
+      Calculate
+    </button>
+
+    <p class="js-result"></p>
+
+    <p>10i:</p>
+    <a href="10i.html">Calculator Project with CSS</a>
+
+    <p>10j:</p>
+    <p>
+      I seperated The HTML, CSS, and JavaScript code into different files for
+      the styled calculator project.
+    </p>
+
+    <script src="../scripts/10.js"></script>
   </body>
 </html>
