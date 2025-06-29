@@ -1,14 +1,30 @@
-const todoArray = ['make dinner', 'wash dishes'];
+const todoList = [{
+  name: 'make dinner',
+  dueDate: '2025-06-29', 
+},{
+  name: 'wash dishes',
+  dueDate: '2025-06-29', 
+}]
 
 renderTodoList();
 
 function renderTodoList(){
   let todoListHTML = '';
 
-for(let i = 0; i < todoArray.length; i++){
-  const todo = todoArray[i];
-  console.log(todoArray[i]);
-  todoListHTML += `<p>${todo}</p>`;
+for(let i = 0; i < todoList.length; i++){
+  const todoObject = todoList[i];
+  //const name = todoObject.name;
+  const {name} = todoObject; //destructuring
+  const {dueDate} = todoObject;
+  todoListHTML += `
+    <p>
+      ${name} ${dueDate}
+      <button onclick='
+        todoList.splice(${i},1);
+        rederTodoList();
+      '>Delete</button>
+    </p>
+  `;
   //generating the HTMl step ^
 }
 
@@ -17,11 +33,11 @@ document.querySelector('.js-todo-list').innerHTML = todoListHTML;
 }
 
 function clickAdd(){
-  const inputElement = document.querySelector('.js-input-2');
+  const inputElement = document.querySelector('.js-input');
   let task = inputElement.value;
-  todoArray.push(task);
-  console.log(todoArray);
 
+  todoList.push(task);
+  console.log(todoList);
   inputElement.value = '';
 
   renderTodoList();
