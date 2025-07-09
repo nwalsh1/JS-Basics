@@ -4,6 +4,9 @@
     <title>Lesson 11 Exercises - Arrays and Loops</title>
   </head>
   <body>
+    <h1>11x</h1>
+    <a href="11x.html">Added Local Storage to the Todo List project</a>
+
     <script>
       //11a
       const nums = [10, 20, 30];
@@ -158,6 +161,153 @@
       }
 
       console.log(countWords(["apple", "grape", "apple", "apple"]));
+
+      //11o
+      console.log(" 11o: ");
+
+      function findSearch(stringArr) {
+        for (let i = 0; i < stringArr.length; i++) {
+          if (stringArr[i] === "search") {
+            console.log(i);
+            break;
+          }
+          if (i === stringArr.length - 1) {
+            console.log(-1);
+          }
+        }
+      }
+
+      findSearch(["hello", "world", "search", "good"]);
+      findSearch(["not", "found"]);
+
+      //11p
+      console.log(" 11p: ");
+      findSearch(["hello", "world", "search", "good", "search"]);
+
+      //11q
+      console.log(" 11q: ");
+      function findIndex(array, word) {
+        for (let i = 0; i < array.length; i++) {
+          if (array[i] === word) {
+            return i;
+          }
+        }
+        return -1;
+      }
+
+      console.log(findIndex(["green", "red", "blue", "red"], "red"));
+      console.log(findIndex(["green", "red", "blue", "red"], "yellow"));
+      console.log(findIndex(["green", "red", "blue", "red"], "green"));
+
+      //11r - remove the string egg
+      console.log(" 11r: ");
+
+      function removeEgg1(foods) {
+        for (let i = 0; i < foods.length; i++) {
+          if (foods[i] === "egg") {
+            foods.splice(i, 1);
+            i--;
+          }
+        }
+        return foods;
+      }
+
+      console.log(removeEgg1(["egg", "apple", "egg", "egg", "ham"]));
+
+      //11s - remove the first two egg strings
+      console.log(" 11s: ");
+
+      function removeEgg2(foods) {
+        let eggCount = 0;
+        for (let i = 0; i < foods.length; i++) {
+          if (foods[i] === "egg" && eggCount <= 1) {
+            foods.splice(i, 1);
+            i--;
+            eggCount++;
+          }
+        }
+        return foods;
+      }
+
+      console.log(removeEgg2(["egg", "apple", "egg", "egg", "ham"]));
+
+      //11t - remove the last two egg strings utilizing reverse()
+      console.log(" 11t: ");
+
+      function removeEgg3(foods) {
+        foods.reverse();
+        let eggCount = 0;
+        for (let i = 0; i < foods.length; i++) {
+          if (foods[i] === "egg" && eggCount <= 1) {
+            foods.splice(i, 1);
+            i--;
+            eggCount++;
+          }
+        }
+        return foods.reverse();
+      }
+
+      console.log(removeEgg3(["egg", "apple", "egg", "egg", "ham"]));
+
+      //11u - do 11t without modifying the original array with slice()
+      console.log(" 11u: ");
+
+      function removeEgg4(foods) {
+        const foodsCopy = foods.slice();
+        foodsCopy.reverse();
+        let eggCount = 0;
+        for (let i = 0; i < foodsCopy.length; i++) {
+          if (foodsCopy[i] === "egg" && eggCount <= 1) {
+            foodsCopy.splice(i, 1);
+            i--;
+            eggCount++;
+          }
+        }
+        return foodsCopy.reverse();
+      }
+
+      const foods = ["egg", "apple", "egg", "egg", "ham"];
+      console.log(removeEgg4(foods));
+      console.log(foods);
+
+      //Chalenge Exercises
+      //11v - FizzBuzz
+      console.log(" 11v: ");
+
+      for (let i = 1; i <= 20; i++) {
+        if (i % 3 === 0 && i % 5 === 0) {
+          console.log("FizzBuzz");
+          continue;
+        } else if (i % 3 === 0) {
+          console.log("Fizz");
+          continue;
+        } else if (i % 5 === 0) {
+          console.log("Buzz");
+          continue;
+        } else {
+          console.log(i);
+        }
+      }
+
+      //11w - remove duplicates from array
+      console.log(" 11w: ");
+
+      function unique(array) {
+        count = {};
+        for (let i = 0; i < array.length; i++) {
+          const word = array[i];
+          if (count[word]) {
+            array.splice(i, 1);
+            i--;
+          } else {
+            count[word] = 1;
+          }
+        }
+        console.log(array);
+      }
+
+      unique(["green", "red", "blue", "red"]);
+      unique(["red", "green", "green", "red"]);
     </script>
   </body>
 </html>
