@@ -14,16 +14,16 @@ function renderTodoList(){
 for(let i = 0; i < todoList.length; i++){
   const todoObject = todoList[i];
   //const name = todoObject.name;
-  const {name} = todoObject; //destructuring
-  const {dueDate} = todoObject;
+  //const dueDate = todoObject.dueDate;
+  const {name, dueDate} = todoObject; //destructuring
+
   todoListHTML += `
-    <p>
-      ${name} ${dueDate}
-      <button onclick='
-        todoList.splice(${i},1);
-        rederTodoList();
-      '>Delete</button>
-    </p>
+    <div> ${name}</div>
+    <div> ${dueDate}</div>
+    <button onclick='
+      todoList.splice(${i},1);
+      renderTodoList();
+    ' class='delete-todo-button'>Delete</button>
   `;
   //generating the HTMl step ^
 }
@@ -34,10 +34,18 @@ document.querySelector('.js-todo-list').innerHTML = todoListHTML;
 
 function clickAdd(){
   const inputElement = document.querySelector('.js-input');
-  let task = inputElement.value;
+  let name = inputElement.value;
 
-  todoList.push(task);
-  console.log(todoList);
+  const dateInputElement = document.querySelector('.js-date-input');
+  const dueDate = dateInputElement.value;
+
+  todoList.push({
+    //task: task,
+    //dueDate : dueDate,
+    name,
+    dueDate // shorthand property
+  });
+  
   inputElement.value = '';
 
   renderTodoList();

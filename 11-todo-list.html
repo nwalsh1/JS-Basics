@@ -2,13 +2,16 @@
 <html>
   <head>
     <title>Todo List</title>
+    <link rel="stylesheet" href="styles/11-todo-list.css" />
   </head>
   <body>
     <p>Todo List</p>
-    <input class="js-input" placeholder="Todo name" />
-    <input class="js-date" type="date" />
-    <button onclick="clickAdd()">Add</button>
-    <div class="js-todo-list"></div>
+    <div class="todo-input-grid">
+      <input class="name-input js-input" placeholder="Todo name" />
+      <input class="due-date-input js-date-input" type="date" />
+      <button class="add-todo-button" onclick="clickAdd()">Add</button>
+    </div>
+    <div class="todo-grid js-todo-list"></div>
     <!-- 
     <p>Todo List</p>
     <input type="text" placeholder="Todo name" />
