@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Advanced Function - Lesson 12</title>
+  </head>
+  <body>
+    <script>
+      /*
+      greeting(); //we can do this due to hoisting cause we used the shortcut
+      function greeting() {
+        console.log("Hello");
+      }
+      // //this is a shortcut for:
+      // var greeting = function(){
+      //   console.log('Hello');
+      // };
+
+      //easier to read and allows Hoisting
+
+      greeting();
+
+      const num = 2;
+      //functions are values
+      const function1 = function () {
+        //name not needed - anonyomous function
+        console.log("hello2");
+      };
+      console.log(function1);
+      console.log(typeof function1);
+      function1(); //run code in variable
+
+      const object1 = {
+        num: 2,
+        fun: function () {
+          //method - function save in object ie console.log()
+          console.log("hello3");
+        },
+      };
+      object1.fun();
+
+      function display(param) {
+        console.log(param);
+      }
+      display(2); //passing a value into a function
+
+      function run(param) {
+        param();
+      }
+      //callback function (one passed into a function)
+      run(function () {
+        console.log("hello4");
+      });
+      //passing a function into another function
+
+      //functions are values
+      */
+
+      //Practical Examples:
+      /*
+      setTimeout(function () {
+        console.log("timeout");
+        console.log("timeout2");
+      }, 3000);
+
+      console.log("next line");
+      //asynchronous code - won't wait for a line to finish - ie setTimeout
+      //advantage: it does not pause our code
+      //synchronous code - computer will wait for one line to finish before going on to the next
+
+      setInterval(function () {
+        console.log("interval");
+      }, 3000);
+      //will keep running and act every 3 seconds
+
+      console.log("next line 2");
+      // 12-rock-paper-scissors.html - created an autoplay function with setInterval and clearInterval
+      */
+
+      //another way to loop through an array
+      ["make dinner", "wash dishes", "watch youtube"].forEach(function (
+        value,
+        index
+      ) {
+        if (value === "wash dishes") {
+          return;
+          //end this function early and go on to next
+          //similar to continue
+        }
+        console.log(index);
+        console.log(value);
+      }); //takes a callback
+      //foreEah takes each value and puts it in the paramenter of the callback function
+      //perferred way to loop through an array - easier to read
+      //function can be given a second parameter, index
+      //not an easy way to break a foreach loop, need a for loop to break.
+
+      //Practical Example
+      //replace for loop in todo-list with a forEach method
+    </script>
+  </body>
+</html>
