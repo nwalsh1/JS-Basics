@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Exercise 12 - Advanced Functions</title>
+  </head>
+  <body>
+    <p>12c:</p>
+    <button class="js-start-button" onclick="finish()">Start</button>
+    <p>12d:</p>
+    <button class="js-loading-button" onclick="load()">Start</button>
+    <p>12e:</p>
+    <button onclick="addToCart()">Add to cart</button>
+    <p class="js-added"></p>
+    <p>12f:</p>
+    <button onclick="addToCart2()">Add to cart</button>
+    <p class="js-added-2"></p>
+    <p>12g:</p>
+    <p class="js-alternating-message">App</p>
+    <button onclick="stop()">Stop</button>
+    <p>12h:</p>
+    <p class="js-alternating-message-2">App</p>
+    <button onclick="addMessage1()">Add</button>
+    <button onclick="removeMessage1()">Remove</button>
+    <p>12i:</p>
+    <p class="js-alternating-message-3">App</p>
+    <button onclick="addMessage2()">Add</button>
+    <button onclick="removeMessage2()">Remove</button>
+    <script>
+      //12a
+      console.log("12a:");
+      let add = function () {
+        console.log(2 + 3);
+      };
+      add();
+      add();
+
+      //12b
+      console.log("12b:");
+      function runTwice(fun) {
+        fun();
+        fun();
+      }
+
+      runTwice(function () {
+        console.log("12b");
+      });
+      runTwice(add);
+
+      //12c:
+
+      function finish() {
+        setTimeout(function () {
+          document.querySelector(".js-start-button").innerHTML = "Finished!";
+        }, 1000);
+      }
+
+      //12d
+      function load() {
+        document.querySelector(".js-loading-button").innerHTML = "Loading...";
+        setTimeout(function () {
+          document.querySelector(".js-loading-button").innerHTML = "Finished!";
+        }, 1000);
+      }
+
+      //12e
+      function addToCart() {
+        document.querySelector(".js-added").innerHTML = "Added";
+        setTimeout(function () {
+          document.querySelector(".js-added").innerHTML = "";
+        }, 2000);
+      }
+
+      //12f
+      let timeoutID;
+      function addToCart2() {
+        document.querySelector(".js-added-2").innerHTML = "Added";
+        clearTimeout(timeoutID);
+        timeoutID = setTimeout(function () {
+          document.querySelector(".js-added-2").innerHTML = "";
+        }, 2000);
+      }
+
+      //12g
+
+      // my first thought which was very inefficient
+      // stopMessage = setInterval(function () {
+      //   document.querySelector(".js-alternating-message").innerHTML =
+      //     "(2) New Messages";
+      //   //document.title = "App";
+      //   setTimeout(function () {
+      //     //document.title = "(2) New Messages";
+      //     document.querySelector(".js-alternating-message").innerHTML = "App";
+      //   }, 1000);
+      // }, 2000);
+
+      let stopMessage;
+      stopMessage = setInterval(function () {
+        let textElement = document.querySelector(".js-alternating-message");
+        if (textElement.innerHTML === "App") {
+          textElement.innerHTML = `(2) New Messages`;
+        } else {
+          textElement.innerHTML = "App";
+        }
+      }, 1000);
+
+      function stop() {
+        clearInterval(stopMessage);
+      }
+
+      //12h
+      let messages1 = 0;
+
+      function addMessage1() {
+        messages1++;
+      }
+      function removeMessage1() {
+        messages1--;
+      }
+
+      setInterval(function () {
+        let textElement = document.querySelector(".js-alternating-message-2");
+        if (textElement.innerHTML === "App") {
+          textElement.innerHTML = `(${messages1}) New Messages`;
+        } else {
+          textElement.innerHTML = "App";
+        }
+      }, 1000);
+
+      //12i
+      let messages2 = 0;
+
+      function addMessage2() {
+        messages2++;
+      }
+      function removeMessage2() {
+        if (messages2 > 0) {
+          messages2--;
+        }
+      }
+
+      setInterval(function () {
+        let textElement = document.querySelector(".js-alternating-message-3");
+        if (textElement.innerHTML === "App" && messages2 > 0) {
+          textElement.innerHTML = `(${messages2}) New Messages`;
+        } else {
+          textElement.innerHTML = "App";
+        }
+      }, 1000);
+    </script>
+  </body>
+</html>
