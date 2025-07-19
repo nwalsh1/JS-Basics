@@ -12,15 +12,12 @@ function renderTodoList(){
   let todoListHTML = '';
 
 //using a forEach method instead of a for loop
-todoList.forEach(function(todoObject,index){
+todoList.forEach((todoObject,index) => {
   const {name, dueDate} = todoObject; //destructuring
   todoListHTML += `
     <div> ${name}</div>
     <div> ${dueDate}</div>
-    <button onclick='
-      todoList.splice(${index},1);
-      renderTodoList();
-    ' class='delete-todo-button'>Delete</button>
+    <button class='delete-todo-button js-delete-todo-button'>Delete</button>
   `;
 });
 
@@ -41,9 +38,21 @@ todoList.forEach(function(todoObject,index){
 //   //generating the HTMl step ^
 // }
 
-document.querySelector('.js-todo-list').innerHTML = todoListHTML;
+  document.querySelector('.js-todo-list').innerHTML = todoListHTML;
+  document.querySelectorAll('.js-delete-todo-button')
+  .forEach((deleteButton,index) => {
+    deleteButton.addEventListener('click', () => {
+      todoList.splice(index,1);
+      renderTodoList();
+    });
+  });
+
+  
 
 }
+
+document.querySelector('.js-add-todo-button')
+  .addEventListener('click',() =>{clickAdd()})
 
 function clickAdd(){
   const inputElement = document.querySelector('.js-input');

@@ -17,11 +17,14 @@
 
       let isAutoPlaying = false;
       let intervalId;
+      
+      // const autoPlay = () => {
 
+      // };
+      //this is easier to read, and allows hoisting v
       function autoPlay(){
         if(!isAutoPlaying){
-          intervalId = setInterval(
-          function(){
+          intervalId = setInterval(() => {
             const playerMove = pickComputerMove();
             playGame(playerMove);
           }, 1000);
@@ -31,6 +34,43 @@
           isAutoPlaying=false;
         }
       }
+
+      document.querySelector('.js-rock-button')
+      .addEventListener('click', () => {
+        playGame('Rock');
+      });
+      //mistake to pass in playGame('rock') - undefined, need to make a function wrapper
+
+      document.querySelector('.js-paper-button')
+      .addEventListener('click', () => {
+        playGame('Paper');
+      });
+
+      document.querySelector('.js-scissors-button')
+      .addEventListener('click', () => {
+        playGame('Scissors');
+      });
+
+      document.querySelector('.js-reset-button')
+      .addEventListener('click', () => {
+        resetButton();
+      });
+
+      document.querySelector('.js-auto-play-button')
+      .addEventListener('click', () => {
+        autoPlay();
+      });
+
+      document.body.addEventListener('keydown', (event) => {
+        if(event.key=== 'r'){
+          playGame('Rock');
+        } else if(event.key === 'p'){
+          playGame('Paper');
+        }else if(event.key === 's'){
+          playGame('Scissors');
+        }
+      });
+      //eventlistener for onkeydown provides the event as a parameter
 
       function playGame(playerMove) {
         const compHand = pickComputerMove();
