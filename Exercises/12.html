@@ -5,9 +5,9 @@
   </head>
   <body>
     <p>12c:</p>
-    <button class="js-start-button" onclick="finish()">Start</button>
+    <button class="js-start-button">Start</button>
     <p>12d:</p>
-    <button class="js-loading-button" onclick="load()">Start</button>
+    <button class="js-loading-button">Start</button>
     <p>12e:</p>
     <button onclick="addToCart()">Add to cart</button>
     <p class="js-added"></p>
@@ -47,25 +47,29 @@
       runTwice(add);
 
       //12c:
+      //create element to effect start button
+      const startButtonElement = document.querySelector(".js-start-button");
 
-      function finish() {
-        setTimeout(function () {
-          document.querySelector(".js-start-button").innerHTML = "Finished!";
+      startButtonElement.addEventListener("click", () => {
+        setTimeout(() => {
+          startButtonElement.innerHTML = "Finished!";
         }, 1000);
-      }
+      });
 
       //12d
-      function load() {
-        document.querySelector(".js-loading-button").innerHTML = "Loading...";
-        setTimeout(function () {
-          document.querySelector(".js-loading-button").innerHTML = "Finished!";
+      const loadingButtonElement = document.querySelector(".js-loading-button");
+
+      loadingButtonElement.addEventListener("click", () => {
+        loadingButtonElement.innerHTML = "Loading...";
+        setTimeout(() => {
+          loadingButtonElement.innerHTML = "Finished!";
         }, 1000);
-      }
+      });
 
       //12e
       function addToCart() {
         document.querySelector(".js-added").innerHTML = "Added";
-        setTimeout(function () {
+        setTimeout(() => {
           document.querySelector(".js-added").innerHTML = "";
         }, 2000);
       }
@@ -75,7 +79,7 @@
       function addToCart2() {
         document.querySelector(".js-added-2").innerHTML = "Added";
         clearTimeout(timeoutID);
-        timeoutID = setTimeout(function () {
+        timeoutID = setTimeout(() => {
           document.querySelector(".js-added-2").innerHTML = "";
         }, 2000);
       }
@@ -94,7 +98,7 @@
       // }, 2000);
 
       let stopMessage;
-      stopMessage = setInterval(function () {
+      stopMessage = setInterval(() => {
         let textElement = document.querySelector(".js-alternating-message");
         if (textElement.innerHTML === "App") {
           textElement.innerHTML = `(2) New Messages`;
@@ -117,7 +121,7 @@
         messages1--;
       }
 
-      setInterval(function () {
+      setInterval(() => {
         let textElement = document.querySelector(".js-alternating-message-2");
         if (textElement.innerHTML === "App") {
           textElement.innerHTML = `(${messages1}) New Messages`;
@@ -138,7 +142,7 @@
         }
       }
 
-      setInterval(function () {
+      setInterval(() => {
         let textElement = document.querySelector(".js-alternating-message-3");
         if (textElement.innerHTML === "App" && messages2 > 0) {
           textElement.innerHTML = `(${messages2}) New Messages`;
@@ -207,6 +211,13 @@
         );
       }
       removeEgg2(["egg", "apple", "egg", "egg", "ham"]);
+
+      //12p
+      //redoing 12c-i to use arrow functions
+      //replaced "function ()" with "() =>"
+
+      //12q
+      //replace onclick="..." to .addEventListener('click',...)
     </script>
   </body>
 </html>
