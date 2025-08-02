@@ -9,22 +9,22 @@
     <p>12d:</p>
     <button class="js-loading-button">Start</button>
     <p>12e:</p>
-    <button onclick="addToCart()">Add to cart</button>
+    <button class="js-add-button">Add to cart</button>
     <p class="js-added"></p>
     <p>12f:</p>
-    <button onclick="addToCart2()">Add to cart</button>
+    <button class="js-add-button-2">Add to cart</button>
     <p class="js-added-2"></p>
     <p>12g:</p>
     <p class="js-alternating-message">App</p>
-    <button onclick="stop()">Stop</button>
+    <button class="js-stop-button">Stop</button>
     <p>12h:</p>
     <p class="js-alternating-message-2">App</p>
-    <button onclick="addMessage1()">Add</button>
-    <button onclick="removeMessage1()">Remove</button>
+    <button class="js-add-message-button">Add</button>
+    <button class="js-remove-message-button">Remove</button>
     <p>12i:</p>
     <p class="js-alternating-message-3">App</p>
-    <button onclick="addMessage2()">Add</button>
-    <button onclick="removeMessage2()">Remove</button>
+    <button class="js-add-message-button-2">Add</button>
+    <button class="js-remove-message-button-2">Remove</button>
     <script>
       //12a
       console.log("12a:");
@@ -67,22 +67,29 @@
       });
 
       //12e
-      function addToCart() {
-        document.querySelector(".js-added").innerHTML = "Added";
+      const addButtonElement = document.querySelector(".js-add-button");
+      const addedElement = document.querySelector(".js-added");
+
+      addButtonElement.addEventListener("click", () => {
+        addedElement.innerHTML = "Added";
         setTimeout(() => {
-          document.querySelector(".js-added").innerHTML = "";
+          addedElement.innerHTML = "";
         }, 2000);
-      }
+      });
 
       //12f
+      const addButtonElement2 = document.querySelector(".js-add-button-2");
+      const addedElement2 = document.querySelector(".js-added-2");
+
       let timeoutID;
-      function addToCart2() {
-        document.querySelector(".js-added-2").innerHTML = "Added";
+
+      addButtonElement2.addEventListener("click", () => {
+        addedElement2.innerHTML = "Added";
         clearTimeout(timeoutID);
         timeoutID = setTimeout(() => {
-          document.querySelector(".js-added-2").innerHTML = "";
+          addedElement2.innerHTML = "";
         }, 2000);
-      }
+      });
 
       //12g
 
@@ -107,19 +114,25 @@
         }
       }, 1000);
 
-      function stop() {
-        clearInterval(stopMessage);
-      }
+      document
+        .querySelector(".js-stop-button")
+        .addEventListener("click", () => {
+          clearInterval(stopMessage);
+        });
 
       //12h
       let messages1 = 0;
+      document
+        .querySelector(".js-add-message-button")
+        .addEventListener("click", () => {
+          messages1++;
+        });
 
-      function addMessage1() {
-        messages1++;
-      }
-      function removeMessage1() {
-        messages1--;
-      }
+      document
+        .querySelector(".js-remove-message-button")
+        .addEventListener("click", () => {
+          messages1--;
+        });
 
       setInterval(() => {
         let textElement = document.querySelector(".js-alternating-message-2");
@@ -133,14 +146,19 @@
       //12i
       let messages2 = 0;
 
-      function addMessage2() {
-        messages2++;
-      }
-      function removeMessage2() {
-        if (messages2 > 0) {
-          messages2--;
-        }
-      }
+      document
+        .querySelector(".js-add-message-button-2")
+        .addEventListener("click", () => {
+          messages2++;
+        });
+
+      document
+        .querySelector(".js-remove-message-button-2")
+        .addEventListener("click", () => {
+          if (messages2 > 0) {
+            messages2--;
+          }
+        });
 
       setInterval(() => {
         let textElement = document.querySelector(".js-alternating-message-3");
